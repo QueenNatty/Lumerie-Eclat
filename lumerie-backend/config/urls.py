@@ -9,6 +9,14 @@ from django.contrib import admin
 from django.urls import include, path
 from django.http import JsonResponse
 
+# Custom branding for the Django admin — this is the backend's own
+# admin site (at /admin/), separate from the frontend's staff dashboard
+# at /admin on the Next.js app. Both exist; this just makes the Django
+# one look like Lumerie Éclat instead of the generic "Django administration".
+admin.site.site_header = "Lumerie Éclat Administration"
+admin.site.site_title = "Lumerie Éclat Admin"
+admin.site.index_title = "Store Management"
+
 
 def health_check(request):
     """Simple uptime check — handy for Render/Railway health probes."""

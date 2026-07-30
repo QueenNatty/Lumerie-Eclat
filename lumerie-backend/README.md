@@ -101,12 +101,27 @@ their web-app "Environment variables" section.
 
 ## Running tests
 
-(Added in Phase 8.)
+Every app has a `tests.py` covering its core behavior — registration,
+login (username + email), product CRUD and category validation, cart
+stock limits, checkout's atomic stock reduction, order cancellation
+restocking, order ownership isolation, and admin-only dashboard access.
+
 ```bash
 python manage.py test
 ```
 
+## Documentation
+
+- `docs/PHASE_1_ARCHITECTURE.md` — design decisions, DB schema, and the "why" behind them
+- `docs/API_DOCUMENTATION.md` — every endpoint, method, and example payload
+- `docs/DEPLOYMENT_CHECKLIST.md` — step-by-step deploy checklist for Render/Railway/PythonAnywhere
+
 ## Status
 
-Built in phases — see `docs/` for the full design write-up. Current
-phase: **Phase 2 — project setup**.
+Complete — all apps (accounts, products, cart, orders, dashboard) are
+implemented, tested, and ready to run. First-time setup still needs:
+```bash
+python manage.py makemigrations accounts products cart orders
+python manage.py migrate
+python manage.py createsuperuser
+```

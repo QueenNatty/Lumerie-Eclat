@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Manrope:wght@200;300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Light mode — "Blush / Soft" from the brand mood board */
+  --bg: #f4e8e1;
+  --surface: #f4e8e1;
+  --surface-1: #ecd9cf;
+  --surface-2: #e3c9ba;
+  --surface-3: #d8b7a4;
+  --on-surface: #2b1d15;
+  --on-surface-variant: #6b5347;
+  --outline: #ad8b76;
+  --outline-variant: #d9c3b5;
+  --gold: #b5643c;
+  --gold-deep: #8a4a2a;
+  --error: #ba1a1a;
+}
+
+.dark {
+  /* Dark mode — "Midnight / Gold" from the brand mood board */
+  --bg: #17110b;
+  --surface: #17110b;
+  --surface-1: #1f1811;
+  --surface-2: #271e15;
+  --surface-3: #332619;
+  --on-surface: #f2e9dd;
+  --on-surface-variant: #cbb89d;
+  --outline: #8a7458;
+  --outline-variant: #4a3c2c;
+  --gold: #c9a227;
+  --gold-deep: #a3821e;
+  --error: #ffb4ab;
+}
+
+* {
+  border-color: var(--outline-variant);
+}
+
+html,
+body {
+  background-color: var(--bg);
+  color: var(--on-surface);
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: "Libre Caslon Text", serif;
+}
+
+/* Crown mark — the signature element carried from the brand sheet into the UI. */
+.crown-mark {
+  display: inline-block;
+  width: 28px;
+  height: 20px;
+}
+
+::selection {
+  background-color: var(--gold);
+  color: var(--bg);
+}
+
+.label-caps {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

@@ -1,4 +1,17 @@
+"""
+Creates a superuser from environment variables if one with that username
+doesn't already exist. Safe to run on every deploy — does nothing if the
+account is already there.
 
+Why this exists: Render's Shell tab (the normal way to run
+`createsuperuser` interactively) requires a paid instance type. This
+command lets the free tier get an admin account too, by reading
+DJANGO_SUPERUSER_USERNAME / _EMAIL / _PASSWORD (already in .env.example)
+and creating the account automatically as part of the deploy's start
+command.
+
+Usage: python manage.py ensure_superuser
+"""
 
 import os
 

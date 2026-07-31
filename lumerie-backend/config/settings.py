@@ -31,6 +31,12 @@ DEBUG = env.bool("DEBUG", default=False)
 
 ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", default=["localhost", "127.0.0.1"])
 
+# Django's CSRF protection needs to know which HTTPS origins are allowed to
+# submit forms to this app (e.g. the Django admin login). Without this,
+# admin login fails with "CSRF verification failed" behind Render's proxy,
+# even though the request really did come from the right place.
+CSRF_TRUSTED_ORIGINS = env.list("CSRF_TRUSTED_ORIGINS", default=["https://*.onrender.com"])
+
 # ── Applications ────────────────────────────────────────────────────────
 DJANGO_APPS = [
     "django.contrib.admin",

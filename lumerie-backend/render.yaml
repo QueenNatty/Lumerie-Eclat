@@ -3,6 +3,7 @@ services:
     name: lumerie-eclat-api
     runtime: python
     plan: free
+    rootDir: lumerie-backend
     buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --noinput"
     startCommand: "python manage.py migrate && gunicorn config.wsgi:application --bind 0.0.0.0:$PORT"
     envVars:
